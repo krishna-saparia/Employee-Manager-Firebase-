@@ -12,9 +12,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {FormsModule} from '@angular/forms';
+import { environment } from "../environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import {FormsModule} from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-    FormsModule
+    MatTableModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
