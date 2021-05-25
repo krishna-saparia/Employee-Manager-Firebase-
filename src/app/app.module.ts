@@ -10,6 +10,11 @@ import {EmployeeListComponent} from './employee-list/employee-list.component';
 import {EmployeeDetailsComponent} from './employee-details/employee-details.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import { SearchComponent } from './search/search.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,14 +22,19 @@ import {MatIconModule} from '@angular/material/icon';
     CreateEmployeeComponent,
     UpdateEmployeeComponent,
     EmployeeListComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    SearchComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,15 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>
+      Search
+    </mat-label>
+    <input matInput type="search" [(ngModel)]="query" placeholder="Ex. Jack">
+    <button mat-button *ngIf="query" matSuffix mat-icon-button aria-label="clear" (click)="query=''">
+      <mat-icon> Close</mat-icon>
+    </button>
+    <button mat-button matSuffix mat-icon-button aria-label="search" (click)="search()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+</div>
