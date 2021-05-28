@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-left: -45px;
+}
+
+mat-form-field {
+  display: block;
+  width: 150%;
+  font-size: 20px;
+  margin-bottom: 15px;
+ }
+.example-full-width {
+  width: 115%;
+  margin-left: 10%;
+}

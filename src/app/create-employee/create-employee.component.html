@@ -1,1 +1,71 @@
-<p>create-employee works!</p>
+<div class="container">
+  <p>
+    <mat-form-field appearance="legacy" hintLabel="Max 10 characters">
+      <mat-label>First Name</mat-label>
+      <input matInput #input maxlength="10" [formControl]="first_name" [errorStateMatcher]="matcher" placeholder="Ex. John">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      <mat-error *ngIf="first_name.hasError('required')">
+        first name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy" hintLabel="Max 10 characters">
+      <mat-label>Last Name</mat-label>
+      <input matInput #input maxlength="10" [formControl]="last_name" [errorStateMatcher]="matcher" placeholder="Ex. Root">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      <mat-error *ngIf="last_name.hasError('required')">
+        Last name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+<!--    <mat-form-field class="example-full-width">-->
+<!--      <mat-label>Company (disabled)</mat-label>-->
+<!--      <input matInput disabled value="Google">-->
+<!--    </mat-form-field>-->
+    <mat-form-field appearance="legacy" hintLabel="Max 10 characters">
+      <mat-label>Employee ID</mat-label>
+      <input matInput #input minlength="6" length="10" [formControl]="eId" [errorStateMatcher]="matcher" placeholder="Ex. Root">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      <mat-error *ngIf="eId.hasError('required')">
+        Employee Id is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Email ID</mat-label>
+      <input type="email" matInput [formControl]="emailID" [errorStateMatcher]="matcher" placeholder="Ex. abc@example.com">
+      <mat-hint>abc@gmail.com</mat-hint>
+      <mat-error *ngIf="emailID.hasError('email') && !emailID.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailID.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telephone No</mat-label>
+      <span matPrefix>+1 &nbsp;</span>
+      <input type="tel" matInput [formControl]="contact_no" [errorStateMatcher]="matcher" placeholder="555-555-1234">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+      <mat-error *ngIf="contact_no.hasError('required')">
+        Employee Id is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Birth Date</mat-label>
+      <input matInput [matDatepicker]="picker2" [formControl]="dob" [errorStateMatcher]="matcher">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 color="primary"></mat-datepicker>
+      <mat-error *ngIf="dob.hasError('required')">
+       Birth date <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+</div>
