@@ -1,14 +1,7 @@
-<div class="container">
-  <mat-form-field>
-    <mat-label>
-      Search
-    </mat-label>
-    <input matInput type="search" [(ngModel)]="query" placeholder="Ex. Jack">
-    <button mat-button *ngIf="query" matSuffix mat-icon-button aria-label="clear" (click)="query=''">
-      <mat-icon> Close</mat-icon>
-    </button>
-    <button mat-button matSuffix mat-icon-button aria-label="search" (click)="search()">
-      <mat-icon>search</mat-icon>
-    </button>
-  </mat-form-field>
-</div>
+<form role="form" id="form-buscar">
+  <div class="form-group">
+    <div class="md-form active-darkcyan active-cyan-2 mb-3">
+      <input id="1" class="form-control" type="text" name="search" placeholder="Search Employee by First Name or Last Name...." [(ngModel)]="searchValue" required/>
+    </div>
+  </div>
+</form>

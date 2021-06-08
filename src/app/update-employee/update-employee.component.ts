@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {EmployeeService} from '../employee.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+// import {MyErrorStateMatcher} from '../create-employee/create-employee.component';
 
 @Component({
   selector: 'app-update-employee',
@@ -6,10 +10,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-employee.component.css']
 })
 export class UpdateEmployeeComponent implements OnInit {
+  form = new FormGroup({
+    first_name: new FormControl('', Validators.required),
+    last_name: new FormControl('', Validators.required),
+    eId: new FormControl('', Validators.required),
+    contact_no: new FormControl('', [Validators.required]),
+    dob: new FormControl('', Validators.required),
+    emailID: new FormControl('', [Validators.required, Validators.email])
+  });
+  public editForm: FormGroup;
+  // id: number;
+  employee: any;
+  // matcher = new MyErrorStateMatcher();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(public employeeService: EmployeeService, public formBuilder: FormBuilder, private activeRoute: ActivatedRoute, private router: Router) {
+    this.editForm = this.formBuilder.group({
+      eId: [''],
+      first_name: [''],
+      last_name: [''],
+      emailID: [''],
+      contact_no: [''],
+      dob: [''],
+    });
   }
 
+  ngOnInit(): void {
+    const id = this.activeRoute.snapshot.paramMap.get('id');
+    this.employeeService.getEmployee(id).subscribe(data => {
+      this.employee = data;
+      this.editForm = this.formBuilder.group({
+        eId: [this.employee.employeeId],
+        first_name: [this.employee.fname],
+        last_name: [this.employee.lname],
+        emailID: [this.employee.emailID],
+        contact_no: [this.employee.contact],
+        dob: [this.employee.dob]
+      });
+    }, error => console.log(error));
+  }
+
+  goToEmployeeList() {
+    this.router.navigate(['/employees']);
+  }
+
+  onSubmit() {
+    const id = this.activeRoute.snapshot.paramMap.get('id');
+    this.employeeService.updateEmployee(this.editForm.value, id);
+    this.router.navigate(['employees']);
+  }
 }

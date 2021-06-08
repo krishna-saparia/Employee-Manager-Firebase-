@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Employee} from '../employee.model';
+import {EmployeeService} from '../employee.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-
-  constructor() { }
+  emp: Employee[];
+  constructor(private employeeService : EmployeeService) { }
 
   ngOnInit(): void {
+    this.employeeService.getEmployeeList().subscribe(res => {
+      this.emp = res.map( e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as Employee
+      }})
+    });
   }
+
+  removeEmployee = employee => this.employeeService.deleteEmployee(employee);
 
 }

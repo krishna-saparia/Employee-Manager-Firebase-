@@ -8,7 +8,8 @@ export class EmployeeService {
 
   constructor(private angularFirestore: AngularFirestore) { }
 
-  getEmployee(id) {
+  getEmployee(id: string) {
+    // @ts-ignore
     return this.angularFirestore
       .collection('employee-collection')
       .doc(id)
@@ -30,14 +31,14 @@ export class EmployeeService {
     });
   }
 
-  deleteEmployee(employee) {
+  deleteEmployee(employee: Employee) {
     return this.angularFirestore
       .collection("employee-collection")
       .doc(employee.employeeId)
       .delete();
   }
 
-  updateEmployee(employee: Employee, id) {
+  updateEmployee(employee, id: string) {
     return this.angularFirestore
       .collection("employee-collection")
       .doc(id)

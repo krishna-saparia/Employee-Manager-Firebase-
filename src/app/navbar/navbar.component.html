@@ -1,11 +1,22 @@
-<mat-toolbar color="primary" class="pad">
-  <span (click)="goHome()" style="cursor: pointer">Employee Manager</span>
-  <span class="example-spacer"></span>
-  <a routerLink="employees" routerLinkActive="active" class="example-spacer-1">
-    <span>Employee List</span>
-  </a>
-  <a routerLink="create" routerLinkActive="active" class="example-spacer-1">
-    <span>Add Employee</span>
-  </a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
 
-</mat-toolbar>
+  <!--  RouterLink : makes that element a link that initiates navigation to a route-->
+  <a routerLink="employees" routerLinkActive="active" class="navbar-brand" >Employee Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+
+        <!--  RouterLink : makes that element a link that initiates navigation to a route-->
+        <a routerLink="create" routerLinkActive="active" class="nav-link waves-effect waves-light" >Add Employee</a>
+      </li>
+      <li class="nav-item">
+
+        <!--  RouterLink : makes that element a link that initiates navigation to a route-->
+        <a routerLink="employees" routerLinkActive="active" class="nav-link waves-effect waves-light" >Employee List</a>
+      </li>
+    </ul>
+  </div>
+</nav>
