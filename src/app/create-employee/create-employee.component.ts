@@ -1,17 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EmployeeService} from '../employee.service';
-import {Employee} from '../employee.model'
 import {Router} from '@angular/router';
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-create-employee',
@@ -40,20 +30,13 @@ export class CreateEmployeeComponent implements OnInit {
       first_name: [''],
       last_name: [''],
       emailId: [''],
-      contact_no : [''],
-      dob : [''],
+      contact_no: [''],
+      dob: [''],
     });
   }
 
   ngOnInit(): void {
   }
-
-  // saveEmployee() {
-  //   this.employeeService.createEmployee(this.employee).subscribe(data => {
-  //       console.log(data);
-  //     },
-  //     error => console.log(error));
-  // }
 
   onSubmit() {
     this.employeeService.createEmployee(this.empForm.value);

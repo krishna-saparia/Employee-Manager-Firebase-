@@ -1,7 +1,8 @@
-<form role="form" id="form-buscar">
+<form id="form-buscar" role="form">
   <div class="form-group">
     <div class="md-form active-darkcyan active-cyan-2 mb-3">
-      <input id="1" class="form-control" type="text" name="search" placeholder="Search Employee by First Name or Last Name...." [(ngModel)]="searchValue" required/>
+      <input [(ngModel)]="searchValue" class="form-control" id="1" name="search"
+             placeholder="Search Employee by First Name or Last Name...." required type="text"/>
     </div>
   </div>
 </form>

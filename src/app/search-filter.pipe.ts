@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {Employee} from './employee.model';
 
 @Pipe({
@@ -10,7 +10,6 @@ export class SearchFilterPipe implements PipeTransform {
     if (!employee || !searchvalue) {
       return employee;
     }
-    // Use filter to search data by first name and last name.
     return employee.filter(data =>
       data.first_name.toLocaleLowerCase().includes(searchvalue.toLocaleLowerCase()) ||
       data.last_name.toLocaleLowerCase().includes(searchvalue.toLocaleLowerCase()) ||

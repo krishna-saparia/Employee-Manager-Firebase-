@@ -14,7 +14,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goHome(): void {
-    this.router.navigate(['']);
-  }
 }

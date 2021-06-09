@@ -3,8 +3,6 @@ import {EmployeeService} from '../employee.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
-// import {MyErrorStateMatcher} from '../create-employee/create-employee.component';
-
 @Component({
   selector: 'app-update-employee',
   templateUrl: './update-employee.component.html',

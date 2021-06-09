@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Employee} from '../employee.model';
 import {EmployeeService} from '../employee.service';
 import {ActivatedRoute} from '@angular/router';
@@ -10,15 +10,16 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  constructor(private employeeService : EmployeeService, private activeRoute: ActivatedRoute) { }
-
   employee: Employee[];
   emp: any;
+
+  constructor(private employeeService: EmployeeService, private activeRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     const id = this.activeRoute.snapshot.paramMap.get('id');
     this.employeeService.getEmployee(id).subscribe(res => {
-      this.emp = res
+      this.emp = res;
     });
   }
 
