@@ -1,43 +1,35 @@
+<div class="d-flex justify-content-center" style="margin: 40px 20% 0 0 ">
 <div class="col-md-8 offset-md-3">
-  <h3> Create Employee </h3>
-  <form [formGroup]="editForm" (ngSubmit)="form.valid && onSubmit()">
+  <h3> Edit your changes</h3>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label>Employee ID</label>
+      <input type="text" class="form-control" formControlName="employeeId" placeholder="AA112233"  required>
+    </div>
     <div class="form-group">
       <label>First Name</label>
-      <input id="first_name" type="text" class="form-control" required>
-<!--      <div class="invalid-feedback">-->
-<!--        <div>First Name is required.</div>-->
-<!--      </div>-->
+      <input formControlName="first_name" type="text" class="form-control" required>
     </div>
 
     <div class="form-group">
       <label>Last Name</label>
       <input type="text" class="form-control" formControlName="last_name" required>
-<!--      <div class="invalid-feedback">-->
-<!--        <div>Last Name is required.</div>-->
-<!--      </div>-->
     </div>
-
     <div class="form-group">
       <label>Email Id</label>
-      <input type="text" class="form-control" formControlName="emailID" required>
+      <input type="text" class="form-control" formControlName="emailId" required>
     </div>
-
     <div class="form-group">
       <label>Contact No</label>
       <input type="text" class="form-control" formControlName="contact_no" required>
     </div>
-
     <div class="form-group">
       <label>Birth Date</label>
-      <input type="text" class="form-control" formControlName="dob" placeholder="mm-dd-yyyy"  required>
-    </div>
-
-    <div class="form-group">
-      <label>Employee ID</label>
-      <input type="text" class="form-control" formControlName="dob" placeholder="AA112233"  required>
+      <input type="text" class="form-control" formControlName="dob" placeholder="mm-dd-yyyy" required>
     </div>
     <div class="form-group">
-      <button class="btn btn-success" type="submit" [disabled]="!form.valid">Submit</button>
+      <button class="btn btn-success" type="submit" [disabled]="!editForm.valid">Update</button>
     </div>
   </form>
+</div>
 </div>

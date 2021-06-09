@@ -36,12 +36,12 @@ export class CreateEmployeeComponent implements OnInit {
     public router: Router
   ) {
     this.empForm = this.formBuilder.group({
+      employeeId: [''],
       first_name: [''],
       last_name: [''],
-      eId: [''],
+      emailId: [''],
       contact_no : [''],
       dob : [''],
-      emailID: [''],
     });
   }
 

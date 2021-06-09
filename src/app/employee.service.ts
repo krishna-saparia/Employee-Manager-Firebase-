@@ -9,7 +9,6 @@ export class EmployeeService {
   constructor(private angularFirestore: AngularFirestore) { }
 
   getEmployee(id: string) {
-    // @ts-ignore
     return this.angularFirestore
       .collection('employee-collection')
       .doc(id)
@@ -31,25 +30,24 @@ export class EmployeeService {
     });
   }
 
-  deleteEmployee(employee: Employee) {
+  deleteEmployee(id) {
     return this.angularFirestore
       .collection("employee-collection")
-      .doc(employee.employeeId)
+      .doc(id)
       .delete();
   }
 
-  updateEmployee(employee, id: string) {
+  updateEmployee(employee: Employee, id) {
     return this.angularFirestore
       .collection("employee-collection")
       .doc(id)
       .update({
-        id: employee.id,
-        eId: employee.employeeId,
-        fname: employee.fname,
-        lname: employee.lname,
-        email: employee.emailId,
-        dob: employee.dob,
-        contact: employee.contact
+        employeeId: employee.employeeId,
+        first_name: employee.first_name,
+        last_name: employee.last_name,
+        emailId: employee.emailId,
+        contact_no: employee.contact_no,
+        dob: employee.dob
       });
   }
 }

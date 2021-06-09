@@ -1,4 +1,10 @@
-<app-search></app-search>
+<form role="form" id="form-buscar">
+  <div class="form-group">
+    <div class="md-form active-darkcyan active-cyan-2 mb-3">
+      <input id="1" class="form-control" type="text" name="search" placeholder="Search Employee by First Name or Last Name...." [(ngModel)]="searchValue" required/>
+    </div>
+  </div>
+</form>
 <table class="table">
   <thead>
   <tr>
@@ -12,17 +18,17 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let emp of emp; let i = index">
+  <tr *ngFor="let emp of emp | searchFilter: searchValue">
     <td>{{emp.employeeId}}</td>
-    <td>{{emp.fname}}</td>
-    <td>{{emp.lname}}</td>
+    <td>{{emp.first_name}}</td>
+    <td>{{emp.last_name}}</td>
     <td>{{emp.emailId}}</td>
-    <td>{{emp.contact}}</td>
+    <td>{{emp.contact_no}}</td>
     <td>{{emp.dob}}</td>
     <td>
-      <button (click)="removeEmployee(emp)" class="text-danger">Delete</button> &nbsp;
-      <button routerLink="/update/{{emp.id}}" class="text-primary">Edit</button>
-      <button routerLink="/details/{{emp.id}}" class="text-primary">View</button>
+      <button (click)="removeEmployee(emp.id)" type="button" class="btn btn-danger" >Delete</button> &nbsp;
+      <button routerLink="/update/{{emp.id}}" type="button" class="btn btn-warning" style="margin-left: 10px">Edit</button>
+      <button routerLink="/details/{{emp.id}}" type="button" class="btn btn-primary" style="margin-left: 10px">View</button>
     </td>
   </tr>
   </tbody>

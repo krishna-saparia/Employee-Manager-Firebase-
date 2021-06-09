@@ -1,5 +1,22 @@
 table {
   alignment: center;
-  width: 100%;
+  width: 110%;
   /*margin: 0 50px;*/
+}
+#form-buscar{
+  margin: 40px 40px;
+  height: 40px;
+}
+
+.form-control {
+  font-size: 16px;
+  font-weight: 300;
+
+}
+
+.form-control:focus {
+  border-color: darkcyan;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 1px rgba(0, 109, 0, 0.8);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 1px rgba(0, 109, 0, 0.8);
 }

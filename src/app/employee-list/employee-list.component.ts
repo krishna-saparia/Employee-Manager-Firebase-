@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from '../employee.model';
 import {EmployeeService} from '../employee.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -9,7 +10,9 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   emp: Employee[];
-  constructor(private employeeService : EmployeeService) { }
+  query = '';
+  searchValue: string;
+  constructor(private employeeService : EmployeeService, private router: Router) { }
 
   ngOnInit(): void {
     this.employeeService.getEmployeeList().subscribe(res => {
@@ -20,7 +23,14 @@ export class EmployeeListComponent implements OnInit {
       }})
     });
   }
-
-  removeEmployee = employee => this.employeeService.deleteEmployee(employee);
-
+  removeEmployee(id: number){
+    this.employeeService.deleteEmployee(id);
+  }
+  // removeEmployee = employee => this.employeeService.deleteEmployee(employee);
+  search(): void {
+    if (this.query.length === 0) {
+      return;
+    }
+    this.router.navigate(['search', this.query]);
+  }
 }

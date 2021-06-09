@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EmployeeService} from '../employee.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+
 // import {MyErrorStateMatcher} from '../create-employee/create-employee.component';
 
 @Component({
@@ -10,25 +11,24 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./update-employee.component.css']
 })
 export class UpdateEmployeeComponent implements OnInit {
-  form = new FormGroup({
-    first_name: new FormControl('', Validators.required),
-    last_name: new FormControl('', Validators.required),
-    eId: new FormControl('', Validators.required),
-    contact_no: new FormControl('', [Validators.required]),
-    dob: new FormControl('', Validators.required),
-    emailID: new FormControl('', [Validators.required, Validators.email])
-  });
+  first_name = new FormControl('', Validators.required);
+  last_name = new FormControl('', Validators.required);
+  employeeId = new FormControl('', Validators.required);
+  contact_no = new FormControl('', [Validators.required]);
+  dob = new FormControl('', Validators.required);
+  emailId = new FormControl('', [Validators.required, Validators.email]);
   public editForm: FormGroup;
   // id: number;
   employee: any;
+
   // matcher = new MyErrorStateMatcher();
 
   constructor(public employeeService: EmployeeService, public formBuilder: FormBuilder, private activeRoute: ActivatedRoute, private router: Router) {
     this.editForm = this.formBuilder.group({
-      eId: [''],
+      employeeId: [''],
       first_name: [''],
       last_name: [''],
-      emailID: [''],
+      emailId: [''],
       contact_no: [''],
       dob: [''],
     });
@@ -39,11 +39,11 @@ export class UpdateEmployeeComponent implements OnInit {
     this.employeeService.getEmployee(id).subscribe(data => {
       this.employee = data;
       this.editForm = this.formBuilder.group({
-        eId: [this.employee.employeeId],
-        first_name: [this.employee.fname],
-        last_name: [this.employee.lname],
-        emailID: [this.employee.emailID],
-        contact_no: [this.employee.contact],
+        employeeId: [this.employee.employeeId],
+        first_name: [this.employee.first_name],
+        last_name: [this.employee.last_name],
+        emailId: [this.employee.emailId],
+        contact_no: [this.employee.contact_no],
         dob: [this.employee.dob]
       });
     }, error => console.log(error));

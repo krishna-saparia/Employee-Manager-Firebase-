@@ -15,6 +15,7 @@ import { environment } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EmployeeListComponent,
     EmployeeDetailsComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,22 @@
 export class Employee {
-  id: number;
+  id: string;
   employeeId: string;
-  fname: string;
-  lname: string;
+  first_name: string;
+  last_name: string;
   emailId: string;
+  contact_no: string;
   dob: string;
-  contact: string;
 
-  constructor(info: { id: number; employeeId: string; fname: string; lname: string; emailId: string; contact: string; dob: string; }) {
-    this.id = info.id;
-    this.employeeId = info.employeeId;
-    this.fname = info.fname;
-    this.lname = info.lname;
-    this.emailId = info.emailId;
-    this.contact = info.contact;
-    this.dob = info.dob;
-  }
+
+  // constructor(info: { id: string; employeeId: string; fname: string; lname: string; emailId: string; contact: string; dob: string; }) {
+  //   this.id = info.id;
+  //   this.employeeId = info.employeeId;
+  //   this.fname = info.fname;
+  //   this.lname = info.lname;
+  //   this.emailId = info.emailId;
+  //   this.contact = info.contact;
+  //   this.dob = info.dob;
+  // }
 }
 
 
